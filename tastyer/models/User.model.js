@@ -1,20 +1,17 @@
 const { Schema, model } = require("mongoose");
 
-// TODO: Please make sure you edit the User model to whatever makes sense in this case
-const userSchema = new Schema(
+//Tastyer User Schema
+const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      required: false,
-      unique: true,
-      trim: true,
+      required: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      trim: true,
-      lowercase: true,
+      lowercase: true, //ask Yabel if necessary
     },
     password: {
       type: String,
@@ -27,6 +24,6 @@ const userSchema = new Schema(
   }
 );
 
-const User = model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
