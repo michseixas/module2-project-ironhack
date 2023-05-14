@@ -1,24 +1,47 @@
 <div id="form">
   <h2>Sign Up</h2>
-  <form action="/auth/signup" method="POST">
+  <form class="mx-auto w-50" action="/auth/signup" method="POST">
 
-    <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        name="username"
+        value="{{user.username}}"
+      />
+    </div>
 
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        name="email"
+        value="{{user.email}}"
+      />
+    </div>
 
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        name="password"
+        value="{{user.password}}"
+      />
+    </div>
 
-    <button type="submit">Sign Up</button>
-
+    <button type="submit" class="btn btn-primary">Sign Up</button>
 
     {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
+      <p class="alert error" role="alert">{{errorMessage}}</p>
     {{/if}}
+
   </form>
 </div>
