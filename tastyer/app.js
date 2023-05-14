@@ -24,8 +24,8 @@ const projectName = "tastyer";
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
 // 👇 Start handling routes here
-const indexRoutes = require("./routes/index.routes");
-app.use("/", indexRoutes);
+const tastyerRoutes = require("./routes/tastyer.routes"); //Our routes file are linked!
+app.use("/", tastyerRoutes);
 
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);

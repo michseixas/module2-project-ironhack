@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
-//Tastyer User Schema
-const recipeSchema = new mongoose.Schema({
+//Recipe Schema
+const recipeSchema = new Schema({
     title: {
       type: String,
       required: true
@@ -25,9 +25,10 @@ const recipeSchema = new mongoose.Schema({
     createdAt: { //Ask Yabel if this will require more work !!! hahaha
       type: Date,
       default: Date.now
-    }
+    },
+    comment : [{ type: Schema.Types.ObjectId, ref: "Comment" }] //since each recipe allows more than 1 comment, it should be an array
 });
 
-const Recipe = mongoose.model('Recipe', recipeSchema);
+const Recipe = model('Recipe', recipeSchema);
 
 module.exports = Recipe;
