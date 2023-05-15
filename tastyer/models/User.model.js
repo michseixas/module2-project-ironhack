@@ -1,20 +1,17 @@
 const { Schema, model } = require("mongoose");
 
-// TODO: Please make sure you edit the User model to whatever makes sense in this case
+//Tastyer User Schema
 const userSchema = new Schema(
   {
     username: {
       type: String,
-      required: false,
-      unique: true,
-      trim: true,
+      required: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      trim: true,
-      lowercase: true,
+      lowercase: true, //ask Yabel if necessary
     },
     password: {
       type: String,
