@@ -1,2 +1,26 @@
-<h1>{{appTitle}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<div>
+  <div>
+    <p>Recipe Page</p>
+    {{#each recipes}}
+      <img src="{{this.thumbnail_url}}" alt="a recipe" class="recipe-photo" />
+      <h1>
+        {{this.name}}
+      </h1>
+      <h3>Servings:
+        {{this.num_servings}}
+      </h3>
+      <p>
+        {{this.description}}
+      </p>
+      {{!-- <h3>
+        {{this.keywords}}
+      </h3> --}}
+      {{!-- <h3>
+        {{this.nutrition}} //populate?!
+      </h3> --}}
+      {{!-- <h3>
+        {{this.instructions}}  //populate?!
+      </h3>  --}}
+    {{/each}}
+  </div>
+</div>

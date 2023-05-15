@@ -2,9 +2,27 @@ const { Schema, model } = require("mongoose");
 
 //Recipe Schema
 const recipeSchema = new Schema({
-    title: {
+    name: {
       type: String,
-      required: true
+      required: true,
+    },
+    id: {
+      type: String,
+    },
+    language: {
+      type: String,
+    },
+    keywords: {
+      type: String,
+    },
+    slug: {
+      type: String,
+    },
+    description: {
+      type: String,
+    },
+    nutrition: {
+      type: String,
     },
     ingredients: {
       type: [String],
@@ -14,13 +32,15 @@ const recipeSchema = new Schema({
       type: String,
       required: true
     },
-    prepTime: {
+    cook_time_minutes: {
       type: Number,
-      required: true
+      required: true,
     },
-    cookTime: {
+    num_servings: {
       type: Number,
-      required: true
+    },
+    thumbnail_url: {
+      type: String,
     },
     comment : [{ type: Schema.Types.ObjectId, ref: "Comment" }] //since each recipe allows more than 1 comment, it should be an array
 },
