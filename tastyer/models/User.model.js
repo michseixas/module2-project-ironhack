@@ -17,6 +17,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    recipeId: {
+      type: [{type: Schema.Types.ObjectId, ref: "Recipe"}]
+    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

@@ -22,12 +22,12 @@ const recipeSchema = new Schema({
       type: Number,
       required: true
     },
-    createdAt: { //Ask Yabel if this will require more work !!! hahaha
-      type: Date,
-      default: Date.now
-    },
     comment : [{ type: Schema.Types.ObjectId, ref: "Comment" }] //since each recipe allows more than 1 comment, it should be an array
-});
+},
+{
+  timestamps: true,
+}
+);
 
 const Recipe = model('Recipe', recipeSchema);
 

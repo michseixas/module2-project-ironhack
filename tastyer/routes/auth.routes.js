@@ -85,19 +85,6 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
 .catch(next);
 });
 
-//   ! This regular expression checks password for special characters and minimum length
-/*
-  const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
-  if (!regex.test(password)) {
-    res
-      .status(400)
-      .render("auth/signup", {
-        errorMessage: "Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter."
-    });
-    return;
-  }
-  */
-
 // GET /auth/login
 router.get("/login", isLoggedOut, (req, res, next) => {
   res.render("auth/login");
@@ -161,7 +148,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
 // GET /auth/profile
 router.get("/profile", isLoggedIn, (req, res, next) => {
-  res.render("auth/profile");
+  res.render("/profile");
 });
 
 // GET /auth/logout
