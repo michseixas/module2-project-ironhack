@@ -1,1 +1,28 @@
 <h1>Hello from the recipe(recipeId)</h1>
+
+
+<div>
+  <div>
+    <p>Recipe Page</p>
+      <img src="{{recipe.thumbnail_url}}" alt="a recipe" class="recipe-photo" />
+      <h1>
+        {{recipe.name}}
+      </h1>
+      <h3>Servings:
+        {{recipe.num_servings}}
+      </h3>
+      <p>
+        {{recipe.description}}
+      </p>
+       <h3>
+        {{recipe.keywords}}
+      </h3>
+       <h3>
+        {{recipe.nutrition}} 
+      </h3> 
+       <h3>
+        {{recipe.instructions}}
+      </h3>  
+      <a href="/{{recipe.id}}">Details</a>
+  </div>
+</div>
