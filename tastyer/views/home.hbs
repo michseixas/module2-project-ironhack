@@ -17,9 +17,9 @@
       <h4>Nutrition:
         <ul>
           {{#each this.nutrition}}
-          {{#if @key === updated_at}}
+          {{!-- {{#if @key === updated_at}} --}}
           <li>{{@key}}: {{this}}</li>
-          {{/if}}
+          {{!-- {{/if}} --}}
           {{/each}}
         </ul>
       </h4>
