@@ -1,39 +1,35 @@
-<div>
-  <div>
+<div class="container">
+  <div class="row flex-row">
     <p>Recipe Page</p>
     {{#each recipes}}
-    <img src="{{this.thumbnail_url}}" alt="a recipe" class="recipe-photo" />
-    <h1>
-      {{this.name}}
-    </h1>
-    <h4>Servings:
-      {{this.num_servings}}
-      </h2>
-      <p>
-      <h4>Description:
-        {{this.description}}
+    <div class="col-md-4">
+      <br>
+      <img src="{{this.thumbnail_url}}" alt="a recipe" class="recipe-photo" />
+      <br>
+      <h1>
+        {{this.name}}
+      </h1>
+      <h4>Servings:
+        {{this.num_servings}}
       </h4>
-      </p>
-      <h4>Nutrition:
-        <ul>
-          {{#each this.nutrition}}
-          {{!-- {{#if @key === updated_at}} --}}
-          <li>{{@key}}: {{this}}</li>
-          {{!-- {{/if}} --}}
-          {{/each}}
-        </ul>
-      </h4>
-      <h4>Instructions:
-        <ol>
-          {{#each this.instructions}}
-          <li>{{this.display_text}}</li>
-          {{/each}}
-        </ol>
-      </h4>
-      <h3>Keywords:
-        {{this.keywords}}
-      </h3>
       <a href="/{{this.id}}">Details</a>
-      {{/each}}
-  </div>
+    </div>
+    {{/each}}
+  </div>  
 </div>
+
+
+<br>
+<br>
+
+<footer class="bg-dark text-white py-5">
+  <div class="container text-center">
+    <h1 class="mb-4"><strong>Subscribe</strong> to our newsletter</h1>
+    <form action="" class="d-flex justify-content-center">
+      <div class="input-group">
+        <input type="email" name="email" id="email" class="form-control" placeholder="example@example.com" />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </div>
+    </form>
+  </div>
+</footer>
