@@ -71,4 +71,13 @@ router.get("/allrecipes", (req, res, next) => {
   res.render("allrecipes");
 });
 
+/* GET Profile page */
+router.get("/profile", (req, res, next) => {
+  res.render("profile"); 
+});
+
+
+
+
+
 module.exports = router;

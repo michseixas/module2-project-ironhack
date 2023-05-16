@@ -13,3 +13,14 @@ h1 {
 img {
   width: 200px;
 }
+
+.nav-link {
+  font-size: 25px;
+  color: black;
+}
+
+.nav-link img {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+}
