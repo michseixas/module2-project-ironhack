@@ -25,7 +25,7 @@ router.get("/",  (req, res, next) => {
 router.get("/home", (req, res, next) => {
   axios.request(options)
 .then(response => {
-  console.log('recipes', response.data.results);
+  console.log('recipes', response.data.results[0].nutrition);
   res.render("home", {recipes: response.data.results}); 
 })
 .catch (err => {
@@ -51,6 +51,11 @@ router.get("/aboutUs", (req, res, next) => {
 /* GET allRecipes page */
 router.get("/allrecipes", (req, res, next) => {
   res.render("allrecipes"); 
+});
+
+/* GET Profile page */
+router.get("/profile", (req, res, next) => {
+  res.render("profile"); 
 });
 
 

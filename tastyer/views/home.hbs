@@ -2,25 +2,37 @@
   <div>
     <p>Recipe Page</p>
     {{#each recipes}}
-      <img src="{{this.thumbnail_url}}" alt="a recipe" class="recipe-photo" />
-      <h1>
-        {{this.name}}
-      </h1>
-      <h3>Servings:
-        {{this.num_servings}}
-      </h3>
+    <img src="{{this.thumbnail_url}}" alt="a recipe" class="recipe-photo" />
+    <h1>
+      {{this.name}}
+    </h1>
+    <h4>Servings:
+      {{this.num_servings}}
+      </h2>
       <p>
+      <h4>Description:
         {{this.description}}
+      </h4>
       </p>
-      {{!-- <h3>
+      <h4>Nutrition:
+        <ul>
+          {{#each this.nutrition}}
+          {{#if @key === updated_at}}
+          <li>{{@key}}: {{this}}</li>
+          {{/if}}
+          {{/each}}
+        </ul>
+      </h4>
+      <h4>Instructions:
+        <ol>
+          {{#each this.instructions}}
+          <li>{{this.display_text}}</li>
+          {{/each}}
+        </ol>
+      </h4>
+      <h3>Keywords:
         {{this.keywords}}
-      </h3> --}}
-      {{!-- <h3>
-        {{this.nutrition}} //populate?!
-      </h3> --}}
-      {{!-- <h3>
-        {{this.instructions}}  //populate?!
-      </h3>  --}}
-    {{/each}}
+      </h3>
+      {{/each}}
   </div>
 </div>
