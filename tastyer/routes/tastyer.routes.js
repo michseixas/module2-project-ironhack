@@ -7,7 +7,7 @@ const options = {
   method: "GET",
   url: "https://tasty.p.rapidapi.com/recipes/list",
   headers: {
-    "X-RapidAPI-Key": "6516624676msh84b669094735db6p107d62jsn77af1d574a92",
+    "X-RapidAPI-Key": "0e44e48294msha9c338f976c5b28p184042jsnf5a0a5c36bae",
     "X-RapidAPI-Host": "tasty.p.rapidapi.com",
   },
   params: {
@@ -17,6 +17,7 @@ const options = {
 };
 const Recipe = require("../models/Recipe.model");
 const Comment = require("../models/Comment.model");
+const Subscriber = require("../models/Subscriber.model");
 
 /* GET index page */
 router.get("/", (req, res, next) => {
@@ -102,5 +103,53 @@ router.post("/recipe/:recipeId", (req, res, next) => {
       next(err);
     });
 });
+
+/* POST subscribe*/
+router.post("/subscribe", (req, res, next) => { 
+  const {email} = req.body;
+  if (email === "") { //checks if email input is empty
+      res.status(400).render("subscribe-error", {
+        errorMessage:
+          "Please provide your email.",
+      });
+      return;
+    }
+
+    let data = {
+      //Define data obj
+      errorMessage: "There is information missing!",
+      email: "",
+    };
+
+    Subscriber.find({ email }) //returns an array of subscribes with email maching this email
+      .then((subscriber) => {
+        if (subscriber.length != 0) { //checks if email exists
+          data.errorMessage = "Subscriber already exists";
+          res.render("subscribe-error", data);
+          return;
+        }
+        Subscriber.create({email}) //creates subscriber
+          .then((subscriber) => {
+            res.render("subscribe-ok");
+          })
+          .catch((error) => {
+            if (error instanceof mongoose.Error.ValidationError) {
+              res
+                .status(500)
+                .render("subscribe-error", { errorMessage: error.message });
+            } else if (error.code === 11000) {
+              res.status(500).render("subscribe-error", {
+                errorMessage:
+                  "Subscriber email needs to be unique. Provide a valid email.",
+              });
+            } else {
+              next(error);
+            }
+          });
+      })
+      .catch(next);
+  }
+);
+
 
 module.exports = router;
