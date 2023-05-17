@@ -16,24 +16,24 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 const multer = require("multer");
-const cloudinary= require('cloudinary').v2
-const {CloudinaryStorage} = require('multer-storage-cloudinary');
+const cloudinary = require("cloudinary").v2;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
 cloudinary.config({
   cloud_name: process.env.CLAUDINARY_CLOUD_NAME,
   api_key: process.env.CLAUDINARY_API_KEY,
-  api_secret: process.env.CLAUDINARY_API_SECRET
+  api_secret: process.env.CLAUDINARY_API_SECRET,
 });
 
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: 'tastyer',
-    allowed_formats: ['jpg', 'png', 'jpeg', 'webp'] 
+    folder: "tastyer",
+    allowed_formats: ["jpg", "png", "jpeg", "webp"],
   },
 });
 
-const upload = multer({storage})
+const upload = multer({ storage });
 
 // GET /auth/signup
 router.get("/signup", isLoggedOut, (req, res, next) => {
@@ -41,70 +41,83 @@ router.get("/signup", isLoggedOut, (req, res, next) => {
 });
 
 // POST /auth/signup
-router.post("/signup", isLoggedOut, upload.single("image"), (req, res, next) => {
-  const { username, email, password } = req.body;
-  console.log("----> File: ", req.file);
+router.post(
+  "/signup",
+  isLoggedOut,
+  upload.single("image"),
+  (req, res, next) => {
+    const { username, email, password } = req.body;
+    console.log("----> File: ", req.file);
 
-  // Check that username, email, and password are provided
-  if (username === "" || email === "" || password === "") {
-    res.status(400).render("auth/signup", {
-      errorMessage:
-        "All fields are mandatory. Please provide your username, email and password.",
-    });
-    return;
-  }
-
-  if (password.length < 6) {
-    res.status(400).render("auth/signup", {
-      errorMessage: "Your password needs to be at least 6 characters long.",
-    });
-
-    return;
-  }
-
-  let data = {   //Define data obj
-    errorMessage: "there is information missing!",
-    user: {
-      username,
-      email,
-      password,
-    },
-  };
-
-  User.find({ username }) //returns an array
-    .then((user) => {
-      if (user.length != 0) {
-          data.errorMessage= "username already exists";
-      res.render("auth/signup", data);
+    // Check that username, email, and password are provided
+    if (username === "" || email === "" || password === "") {
+      res.status(400).render("auth/signup", {
+        errorMessage:
+          "All fields are mandatory. Please provide your username, email and password.",
+      });
       return;
     }
 
-  // Create a new user - start by hashing the password
-  bcrypt
-    .genSalt(saltRounds)
-    .then((salt) => bcrypt.hash(password, salt))
-    .then((hashedPassword) => {
-      // Create a user and save it in the database
-      return User.create({ username, email, password: hashedPassword, profileImageSrc: req.file.path });
-    })
-    .then((user) => {
-      res.redirect("/auth/login");
-    })
-    .catch((error) => {
-      if (error instanceof mongoose.Error.ValidationError) {
-        res.status(500).render("auth/signup", { errorMessage: error.message });
-      } else if (error.code === 11000) {
-        res.status(500).render("auth/signup", {
-          errorMessage:
-            "Username and email need to be unique. Provide a valid username or email.",
-        });
-      } else {
-        next(error);
-      }
-    });
-})
-.catch(next);
-});
+    if (password.length < 6) {
+      res.status(400).render("auth/signup", {
+        errorMessage: "Your password needs to be at least 6 characters long.",
+      });
+
+      return;
+    }
+
+    let data = {
+      //Define data obj
+      errorMessage: "There is information missing!",
+      user: {
+        username,
+        email,
+        password,
+      },
+    };
+
+    User.find({ username }) //returns an array
+      .then((user) => {
+        if (user.length != 0) {
+          data.errorMessage = "Username already exists";
+          res.render("auth/signup", data);
+          return;
+        }
+
+        // Create a new user - start by hashing the password
+        bcrypt
+          .genSalt(saltRounds)
+          .then((salt) => bcrypt.hash(password, salt))
+          .then((hashedPassword) => {
+            // Create a user and save it in the database
+            return User.create({
+              username,
+              email,
+              password: hashedPassword,
+              profileImageSrc: req.file.path,
+            });
+          })
+          .then((user) => {
+            res.redirect("/auth/login");
+          })
+          .catch((error) => {
+            if (error instanceof mongoose.Error.ValidationError) {
+              res
+                .status(500)
+                .render("auth/signup", { errorMessage: error.message });
+            } else if (error.code === 11000) {
+              res.status(500).render("auth/signup", {
+                errorMessage:
+                  "Username and email need to be unique. Provide a valid username or email.",
+              });
+            } else {
+              next(error);
+            }
+          });
+      })
+      .catch(next);
+  }
+);
 
 // GET /auth/login
 router.get("/login", isLoggedOut, (req, res, next) => {
@@ -134,7 +147,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
   }
 
   // Search the database for a user with the email submitted in the form
-  User.findOne({ email })
+  User.findOne({ username })
     .then((user) => {
       // If the user isn't found, send an error message that user provided wrong credentials
       if (!user) {
@@ -159,32 +172,26 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           req.session.currentUser = user.toObject();
           // Remove the password field
           delete req.session.currentUser.password;
-
-          console.log("ueeeeeeeee: ", user)
-
-
-          res.redirect("/auth/profile/" + user._id);
+          res.redirect("/auth/profile");
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
     })
     .catch((err) => next(err));
 });
 
-// // GET /auth/profile2
-// router.get("/profile/:userId", isLoggedIn, (req, res, next) => {
-//   res.render("/profile");
-// });
-
 // GET /auth/profile
-router.get("/auth/profile/:userId", isLoggedIn, (req, res, next) => {
-  const {userId}= req.params;
-  User.findById(userId)
-  .then(user => {
-    res.render("auth/profile", user);
-  })
-  .catch((err)=> next(err))
-});
+router.get("/profile", isLoggedIn, (req, res, next) => {
+  
+  console.log("req.session.currentuser id----------:", req.session.currentUser._id);
+  // const objectId = objectId()
 
+  User.findById(req.session.currentUser._id)
+    .then((user) => {
+      console.log("user:", user);
+      res.render("auth/profile", user);
+    })
+    .catch((err) => next(err));
+});
 
 // GET /auth/logout
 router.get("/logout", isLoggedIn, (req, res, next) => {
@@ -196,6 +203,5 @@ router.get("/logout", isLoggedIn, (req, res, next) => {
     res.redirect("/auth/login");
   });
 });
-
 
 module.exports = router;

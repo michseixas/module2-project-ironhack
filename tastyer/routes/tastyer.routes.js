@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
-const bodyparser = require('body-parser')
+const bodyparser = require("body-parser");
 
 const options = {
   method: "GET",
@@ -27,88 +27,21 @@ router.get("/", (req, res, next) => {
 router.get("/home", (req, res, next) => {
   options.url = "https://tasty.p.rapidapi.com/recipes/list";
   options.params = {
-    from: "22", //selection of single recipes, not multiple recipes!! 
+    from: "22", //selection of single recipes, not multiple recipes!!
     size: "6",
   };
-  console.log('option.params!!!!!!!!!!!!', options.params)
 
   axios
     .request(options)
     .then((response) => {
       // console.log("recipes", response.data.results);
       response.data.results.forEach((element, k) => {
-        console.log(`${k} name`, element.name)
       });
       res.render("home", { recipes: response.data.results });
     })
     .catch((err) => {
       console.log(err);
     });
-});
-
-/* GET recipeId page */
-router.get("/:recipeId", (req, res, next) => {
-  options.url = `https://tasty.p.rapidapi.com/recipes/get-more-info`;
-  options.params = { id: req.params.recipeId }
-  console.log('option.params!!!!!!!!!!!!', options.params)
- const data = {}
-  axios
-    .request(options)
-    .then((response) => {
-      console.log("recipe---------------", response.data);
-      // res.json({ recipe: response.data });
-      data.recipe = response.data
-     return Comment.find({recipeId: req.params.recipeId})
-    })
-    .then((comments)=> {
-    data.comments =comments
-      res.render("recipe", data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-/* POST recipeId page */
-router.post("/recipe/:recipeId", (req, res, next) => {
-  console.log("hi");
-  // Extracting data from the request body
-  const { author, comment } = req.body;
-  console.log(req.body)
-  const newComment = {
-    author,
-    comment,
-    recipeId: req.params.recipeId
-  };
-  Comment.create(newComment)
-  .then((comment)=>{
-    res.redirect("/"+ req.params.recipeId);
-  })
-  .catch((err) => {
-    console.log(err);
-    next(err);
-  });
-
-  // // Updating the recipe with the new comment and fetching the updated recipe data
-  // Recipe.findByIdAndUpdate(
-  //   req.params.recipeId,
-  //   { $push: { comments: newComment } },
-  //   { new: true }
-  // )
-  // .then((updatedRecipe) => {
-  //   console.log("Updated Recipe:", updatedRecipe);
-  //     // Make an API request to fetch the updated recipe data
-  //     axios
-  //       .request(options)
-  //       .then((response) => {
-  //         // Render the recipe page with the updated recipe object
-  //         res.render("recipe", { recipe: response.data });
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //         next(err);
-  //       });
-  //   })
 });
 
 /* GET aboutUs page */
@@ -123,9 +56,51 @@ router.get("/allrecipes", (req, res, next) => {
 
 /* GET Profile page */
 router.get("/profile", (req, res, next) => {
-  res.render("profile"); 
+  res.render("profile2");
 });
 
+/* GET recipeId page */
+router.get("/:recipeId", (req, res, next) => {
+  options.url = `https://tasty.p.rapidapi.com/recipes/get-more-info`;
+  options.params = { id: req.params.recipeId };
+  console.log("option.params!!!!!!!!!!!!", options.params);
+  const data = {};
+  axios
+    .request(options)
+    .then((response) => {
+      console.log("recipe---------------", response.data);
+      // res.json({ recipe: response.data });
+      data.recipe = response.data;
+      return Comment.find({ recipeId: req.params.recipeId });
+    })
+    .then((comments) => {
+      data.comments = comments;
+      res.render("recipe", data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
+/* POST recipeId page */
+router.post("/recipe/:recipeId", (req, res, next) => {
+  console.log("hi");
+  // Extracting data from the request body
+  const { author, comment } = req.body;
+  console.log(req.body);
+  const newComment = {
+    author,
+    comment,
+    recipeId: req.params.recipeId,
+  };
+  Comment.create(newComment)
+    .then((comment) => {
+      res.redirect("/" + req.params.recipeId);
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    });
+});
 
 module.exports = router;

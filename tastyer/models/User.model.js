@@ -18,7 +18,7 @@ const userSchema = new Schema(
       required: true,
     },
     recipeId: {
-      type: [{type: Schema.Types.ObjectId, ref: "Recipe"}]
+      type: [{ type: Schema.Types.ObjectId, ref: "Recipe" }],
     },
     profileImageSrc: String,
   },
