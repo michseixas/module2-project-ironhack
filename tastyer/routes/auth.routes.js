@@ -15,14 +15,35 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
+const multer = require("multer");
+const cloudinary= require('cloudinary').v2
+const {CloudinaryStorage} = require('multer-storage-cloudinary');
+
+cloudinary.config({
+  cloud_name: process.env.CLAUDINARY_CLOUD_NAME,
+  api_key: process.env.CLAUDINARY_API_KEY,
+  api_secret: process.env.CLAUDINARY_API_SECRET
+});
+
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'tastyer',
+    allowed_formats: ['jpg', 'png', 'jpeg', 'webp'] 
+  },
+});
+
+const upload = multer({storage})
+
 // GET /auth/signup
 router.get("/signup", isLoggedOut, (req, res, next) => {
   res.render("auth/signup");
 });
 
 // POST /auth/signup
-router.post("/signup", isLoggedOut, (req, res, next) => {
+router.post("/signup", isLoggedOut, upload.single("image"), (req, res, next) => {
   const { username, email, password } = req.body;
+  console.log("----> File: ", req.file);
 
   // Check that username, email, and password are provided
   if (username === "" || email === "" || password === "") {
@@ -64,7 +85,7 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
     .then((salt) => bcrypt.hash(password, salt))
     .then((hashedPassword) => {
       // Create a user and save it in the database
-      return User.create({ username, email, password: hashedPassword });
+      return User.create({ username, email, password: hashedPassword, profileImageSrc: req.file.path });
     })
     .then((user) => {
       res.redirect("/auth/login");
@@ -139,17 +160,31 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           // Remove the password field
           delete req.session.currentUser.password;
 
-          res.redirect("/");
+          console.log("ueeeeeeeee: ", user)
+
+
+          res.redirect("/auth/profile/" + user._id);
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
     })
     .catch((err) => next(err));
 });
 
+// // GET /auth/profile2
+// router.get("/profile/:userId", isLoggedIn, (req, res, next) => {
+//   res.render("/profile");
+// });
+
 // GET /auth/profile
-router.get("/profile", isLoggedIn, (req, res, next) => {
-  res.render("/profile");
+router.get("/auth/profile/:userId", isLoggedIn, (req, res, next) => {
+  const {userId}= req.params;
+  User.findById(userId)
+  .then(user => {
+    res.render("auth/profile", user);
+  })
+  .catch((err)=> next(err))
 });
+
 
 // GET /auth/logout
 router.get("/logout", isLoggedIn, (req, res, next) => {

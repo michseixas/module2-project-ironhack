@@ -16,6 +16,7 @@ const options = {
   },
 };
 const Recipe = require("../models/Recipe.model");
+const Comment = require("../models/Comment.model");
 
 /* GET index page */
 router.get("/", (req, res, next) => {
@@ -50,11 +51,18 @@ router.get("/:recipeId", (req, res, next) => {
   options.url = `https://tasty.p.rapidapi.com/recipes/get-more-info`;
   options.params = { id: req.params.recipeId }
   console.log('option.params!!!!!!!!!!!!', options.params)
+ const data = {}
   axios
     .request(options)
     .then((response) => {
       console.log("recipe---------------", response.data);
-      res.render("recipe", { recipe: response.data });
+      // res.json({ recipe: response.data });
+      data.recipe = response.data
+     return Comment.find({recipeId: req.params.recipeId})
+    })
+    .then((comments)=> {
+    data.comments =comments
+      res.render("recipe", data);
     })
     .catch((err) => {
       console.log(err);
@@ -63,29 +71,45 @@ router.get("/:recipeId", (req, res, next) => {
 
 /* POST recipeId page */
 router.post("/recipe/:recipeId", (req, res, next) => {
-  const { author, comment, image } = req.body;
+  console.log("hi");
+  // Extracting data from the request body
+  const { author, comment } = req.body;
+  console.log(req.body)
   const newComment = {
     author,
     comment,
-    image,
+    recipeId: req.params.recipeId
   };
+  Comment.create(newComment)
+  .then((comment)=>{
+    res.redirect("/"+ req.params.recipeId);
+  })
+  .catch((err) => {
+    console.log(err);
+    next(err);
+  });
 
-  Recipe.findByIdAndUpdate(
-    req.params.recipeId,
-    { $push: { comments: newComment } },
-    { new: true }
-  )
-    .then((recipe) => {
-      // Redirect back to the recipe page
-      res.redirect(`/recipe/${recipe._id}`);
-    })
-    .catch((err) => {
-      console.log(err);
-      next(err);
-    });
+  // // Updating the recipe with the new comment and fetching the updated recipe data
+  // Recipe.findByIdAndUpdate(
+  //   req.params.recipeId,
+  //   { $push: { comments: newComment } },
+  //   { new: true }
+  // )
+  // .then((updatedRecipe) => {
+  //   console.log("Updated Recipe:", updatedRecipe);
+  //     // Make an API request to fetch the updated recipe data
+  //     axios
+  //       .request(options)
+  //       .then((response) => {
+  //         // Render the recipe page with the updated recipe object
+  //         res.render("recipe", { recipe: response.data });
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //         next(err);
+  //       });
+  //   })
 });
-
-
 
 /* GET aboutUs page */
 router.get("/aboutUs", (req, res, next) => {
@@ -101,8 +125,6 @@ router.get("/allrecipes", (req, res, next) => {
 router.get("/profile", (req, res, next) => {
   res.render("profile"); 
 });
-
-
 
 
 

@@ -1,9 +1,9 @@
 <div id="form">
   <h2>Sign Up</h2>
-  <form class="mx-auto w-50" action="/auth/signup" method="POST">
+  <form class="mx-auto w-50" action="/auth/signup" method="POST" enctype="multipart/form-data">
 
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <label form="exampleInputEmail1" class="form-label">Username</label>
       <input
         type="text"
         class="form-control"
@@ -15,7 +15,7 @@
     </div>
 
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <label form="exampleInputEmail1" class="form-label">Email</label>
       <input
         type="email"
         class="form-control"
@@ -27,7 +27,7 @@
     </div>
 
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <label form="exampleInputPassword1" class="form-label">Password</label>
       <input
         type="password"
         class="form-control"
@@ -35,7 +35,11 @@
         name="password"
         value="{{user.password}}"
       />
-    </div>
+      </div>
+
+    <label> Profile image
+      <input type="file" name="image" placeholder="Your image"/>
+    </label>
 
     <button type="submit" class="btn btn-primary">Sign Up</button>
 

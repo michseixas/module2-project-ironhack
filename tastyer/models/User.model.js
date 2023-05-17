@@ -9,7 +9,7 @@ const userSchema = new Schema(
     },
     email: {
       type: String,
-      required: true,
+      // required: true,
       unique: true,
       lowercase: true, //ask Yabel if necessary
     },
@@ -19,7 +19,8 @@ const userSchema = new Schema(
     },
     recipeId: {
       type: [{type: Schema.Types.ObjectId, ref: "Recipe"}]
-    }
+    },
+    profileImageSrc: String,
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
