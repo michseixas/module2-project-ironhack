@@ -7,7 +7,7 @@ const options = {
   method: "GET",
   url: "https://tasty.p.rapidapi.com/recipes/list",
   headers: {
-    "X-RapidAPI-Key": "6516624676msh84b669094735db6p107d62jsn77af1d574a92",
+    "X-RapidAPI-Key": process.env.RAPIDAPI_KEY,
     "X-RapidAPI-Host": "tasty.p.rapidapi.com",
   },
   params: {
