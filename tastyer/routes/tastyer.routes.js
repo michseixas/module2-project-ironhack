@@ -48,17 +48,6 @@ router.get("/home", (req, res, next) => {
     });
 });
 
-
-// /* GET allRecipes page */
-// router.get("/allrecipes", (req, res, next) => {
-//   res.render("allrecipes");
-// });
-
-// /* GET Profile page */
-// router.get("/allrecipes", (req, res, next) => {
-//   res.redirect("/profile");
-// });
-
 // GET /profile/:username
 router.get("/profile", isLoggedIn, (req, res, next) => {
   
@@ -149,11 +138,12 @@ router.get("/:recipeId", (req, res, next) => {
 router.post("/recipe/:recipeId", (req, res, next) => {
   console.log("hi");
   // Extracting data from the request body
-  const { author, comment } = req.body;
+  const { author, comment, image } = req.body;
   console.log(req.body);
   const newComment = {
     author,
     comment,
+    image,
     recipeId: req.params.recipeId,
   };
   Comment.create(newComment)
