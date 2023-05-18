@@ -2,12 +2,14 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const bodyparser = require("body-parser");
+const transporter = require("../config/transporter.config");
+const templates = require("../templates/template");
 
 const options = {
   method: "GET",
   url: "https://tasty.p.rapidapi.com/recipes/list",
   headers: {
-    "X-RapidAPI-Key": "0e44e48294msha9c338f976c5b28p184042jsnf5a0a5c36bae",
+    "X-RapidAPI-Key": process.env.RAPIDAPI_KEY,
     "X-RapidAPI-Host": "tasty.p.rapidapi.com",
   },
   params: {
@@ -44,6 +46,30 @@ router.get("/home", (req, res, next) => {
       console.log(err);
     });
 });
+
+
+
+/*GET - start of route Nodemailer*/
+
+router.post("/send-email", (req, res, next) => {
+  let { email, subject, message } = req.body;
+ 
+  // Send an email with the information we got from the form
+  transporter.sendMail({
+    from: `"Tastyer Team" <${process.env.EMAIL_ADDRESS}>`,
+    to: email,
+    subject: subject,
+    text: message,
+    html: templates.templateExample(message),
+  })
+  .then((info) => res.render("message", { email, subject, message, info }))
+  .catch((error) => console.log(error));
+});
+
+/*end of route Nodemailer*/
+
+
+
 
 /* GET aboutUs page */
 router.get("/aboutUs", (req, res, next) => {
@@ -150,6 +176,13 @@ router.post("/subscribe", (req, res, next) => {
       .catch(next);
   }
 );
+
+router.post('/send-email', (req, res, next) => {
+  const { email, subject, message } = req.body;
+  
+  res.render('email-message', { email, subject, message })
+});
+
 
 
 module.exports = router;

@@ -64,7 +64,7 @@ h1 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100vh;
+  height: 60vh;
 }
 
 container-subs-ok {
@@ -140,3 +140,34 @@ container-subs-ok {
   border-radius: 5px;
   margin-bottom: 20px;
 }
+
+/* Styling newsletter confirmation */
+
+.sent-newsletter {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color:#9dce9f;
+  border-radius: 5px;
+}
+
+.sent-newsletter h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: rgb(41, 39, 39);
+}
+
+.sent-newsletter h2 {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: rgb(41, 39, 39);
+}
+
+.sent-newsletter p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: rgb(41, 39, 39);
+}
+
+/* ----- */
