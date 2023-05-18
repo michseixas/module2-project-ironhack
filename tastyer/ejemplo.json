@@ -1,0 +1,569 @@
+{
+    video_id: 179789,
+    video_url: 'https://vid.tasty.co/output/283325/hls24_1681166177.m3u8',
+    facebook_posts: [],
+    cook_time_minutes: 40,
+    language: 'eng',
+    tips_and_ratings_enabled: true,
+    canonical_id: 'recipe:8650',
+    show_id: 17,
+    thumbnail_url: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/439366.jpg',
+    keywords: ', comfort food, enchiladas suizas, mexican food',
+    prep_time_minutes: 30,
+    yields: 'Servings: 5',
+    credits: [
+      { name: 'Joelle Park', type: 'internal' },
+      { name: 'Brent Bennett', type: 'internal' }
+    ],
+    original_video_url: 'https://s3.amazonaws.com/video-api-prod/assets/e5d9c82349fa463d917fa1867b3a0dfa/BFV99819_Day1OfCookingComfortFoodsFromEveryCountry_9x16FINAL.mp4',
+    country: 'US',
+    draft_status: 'published',
+    seo_path: null,
+    brand: null,
+    instructions: [
+      {
+        id: 74734,
+        display_text: 'Preheat the oven to 350°F (180°C).',
+        position: 1,
+        start_time: 0,
+        end_time: 0,
+        temperature: 350,
+        appliance: 'oven'
+      },
+      {
+        id: 74735,
+        display_text: 'Fill a large saucepan halfway with water. Bring to a boil over high heat, then add the tomatillos, jalapeños, and onion and cook for about 10 minutes, or until the tomatillo skins begin to split. Drain, then transfer the vegetables to a blender.',
+        position: 2,
+        start_time: 7833,
+        end_time: 9166,
+        temperature: null,
+        appliance: null
+      },
+      {
+        display_text: 'Add the cream cheese, chicken bouillon, garlic, crema, and cilantro bunch to the blender with the vegetables and blend on high speed until smooth, 30–45 seconds.',
+        position: 3,
+        start_time: 9666,
+        end_time: 13666,
+        temperature: null,
+        appliance: null,
+        id: 74736
+      },
+      {
+        temperature: null,
+        appliance: null,
+        id: 74737,
+        display_text: 'Add the olive oil to the same large saucepan used to boil the vegetables, then pour in the sauce. Cook over medium heat, stirring occasionally, for about 5 minutes, or until the color turns a shade paler.',
+        position: 4,
+        start_time: 15333,
+        end_time: 16833
+      },
+      {
+        temperature: null,
+        appliance: null,
+        id: 74738,
+        display_text: 'Heat a drizzle of olive oil in a large skillet over low heat. Working in batches, add the tortillas and cook for 20–30 seconds on each side to soften, adding more oil between batches if needed.',
+        position: 5,
+        start_time: 17500,
+        end_time: 19666
+      },
+      {
+        position: 6,
+        start_time: 21000,
+        end_time: 22333,
+        temperature: null,
+        appliance: null,
+        id: 74739,
+        display_text: 'In a medium bowl, pour ¾ cup of the enchilada sauce over the shredded chicken and toss well until the chicken is fully coated.'
+      },
+      {
+        position: 7,
+        start_time: 0,
+        end_time: 0,
+        temperature: null,
+        appliance: null,
+        id: 74740,
+        display_text: 'Add ½ cup of the enchilada sauce to a 9 x 13-inch baking dish and smooth with an offset spatula until the entire bottom of the dish is covered.'
+      },
+      {
+        display_text: 'Add some shredded chicken to each tortilla, roll up, and arrange seam-side down in the baking dish on top of the enchilada sauce. Evenly pour the remaining sauce over the rolled tortillas, then sprinkle the grated cheese on top.',
+        position: 8,
+        start_time: 23000,
+        end_time: 26726,
+        temperature: null,
+        appliance: null,
+        id: 74741
+      },
+      {
+        end_time: 0,
+        temperature: null,
+        appliance: null,
+        id: 74742,
+        display_text: 'Bake the enchiladas for 30–40 minutes, or until the cheese melts and begins to turn golden.',
+        position: 9,
+        start_time: 0
+      },
+      {
+        position: 10,
+        start_time: 0,
+        end_time: 0,
+        temperature: null,
+        appliance: null,
+        id: 74743,
+        display_text: 'Garnish the enchiladas with sliced red onion and chopped cilantro, then serve immediately.'
+      },
+      {
+        display_text: 'Enjoy!',
+        position: 11,
+        start_time: 3333,
+        end_time: 4500,
+        temperature: null,
+        appliance: null,
+        id: 74744
+      }
+    ],
+    aspect_ratio: '9:16',
+    created_at: 1681166402,
+    servings_noun_singular: 'serving',
+    slug: 'enchiladas-suizas-mexicanas',
+    total_time_minutes: 90,
+    nutrition_visibility: 'auto',
+    compilations: [],
+    show: { id: 17, name: 'Tasty' },
+    buzz_id: null,
+    seo_title: 'Enchiladas Suizas',
+    price: {
+      total: 2450,
+      portion: 500,
+      consumption_total: 950,
+      consumption_portion: 200,
+      updated_at: '2023-05-17T07:30:07+02:00'
+    },
+    sections: [ { components: [Array], name: null, position: 1 } ],
+    video_ad_content: 'none',
+    name: 'Enchiladas Suizas Mexicanas',
+    thumbnail_alt_text: '',
+    id: 8650,
+    inspired_by_url: null,
+    is_one_top: false,
+    is_shoppable: true,
+    num_servings: 5,
+    promotion: 'full',
+    approved_at: 1681238109,
+    brand_id: null,
+    tags: [
+      {
+        root_tag_type: 'cuisine',
+        id: 64457,
+        name: 'mexican',
+        display_name: 'Mexican',
+        type: 'north_american'
+      },
+      {
+        root_tag_type: 'appliance',
+        id: 64492,
+        name: 'baking',
+        display_name: 'Baking',
+        type: 'appliance'
+      },
+      {
+        display_name: 'Weeknight',
+        type: 'dinner',
+        root_tag_type: 'meal',
+        id: 64505,
+        name: 'weeknight'
+      },
+      {
+        name: 'stove_top',
+        display_name: 'Stove Top',
+        type: 'appliance',
+        root_tag_type: 'appliance',
+        id: 65848
+      }
+    ],
+    servings_noun_plural: 'servings',
+    updated_at: 1681238109,
+    total_time_tier: { tier: 'under_1.5_hours', display_tier: 'Under 1.5 hours' },
+    user_ratings: { count_positive: 4, count_negative: 2, score: 0.666667 },
+    renditions: [
+      {
+        bit_rate: 1285,
+        maximum_bit_rate: null,
+        minimum_bit_rate: null,
+        container: 'mp4',
+        url: 'https://vid.tasty.co/output/283325/square_720/1681166177',
+        name: 'mp4_404x720',
+        width: 404,
+        file_size: 4300219,
+        content_type: 'video/mp4',
+        aspect: 'portrait',
+        poster_url: 'https://img.buzzfeed.com/video-transcoder-prod/output/283325/square_720/1681166177_00001.png',
+        height: 720,
+        duration: 26777
+      },
+      {
+        height: 320,
+        bit_rate: 475,
+        minimum_bit_rate: null,
+        content_type: 'video/mp4',
+        url: 'https://vid.tasty.co/output/283325/square_320/1681166177',
+        name: 'mp4_180x320',
+        poster_url: 'https://img.buzzfeed.com/video-transcoder-prod/output/283325/square_320/1681166177_00001.png',
+        width: 180,
+        duration: 26777,
+        file_size: 1587261,
+        maximum_bit_rate: null,
+        aspect: 'portrait',
+        container: 'mp4'
+      },
+      {
+        width: 404,
+        duration: 26777,
+        file_size: 4296142,
+        bit_rate: 1284,
+        maximum_bit_rate: null,
+        minimum_bit_rate: null,
+        container: 'mp4',
+        poster_url: 'https://img.buzzfeed.com/video-transcoder-prod/output/283325/landscape_720/1681166177_00001.png',
+        height: 720,
+        content_type: 'video/mp4',
+        aspect: 'portrait',
+        url: 'https://vid.tasty.co/output/283325/landscape_720/1681166177',
+        name: 'mp4_404x720'
+      },
+      {
+        height: 480,
+        width: 270,
+        file_size: 2522475,
+        maximum_bit_rate: null,
+        aspect: 'portrait',
+        url: 'https://vid.tasty.co/output/283325/landscape_480/1681166177',
+        poster_url: 'https://img.buzzfeed.com/video-transcoder-prod/output/283325/landscape_480/1681166177_00001.png',
+        duration: 26777,
+        bit_rate: 754,
+        minimum_bit_rate: null,
+        content_type: 'video/mp4',
+        container: 'mp4',
+        name: 'mp4_270x480'
+      },
+      {
+        aspect: 'portrait',
+        url: 'https://vid.tasty.co/output/283325/hls24_1681166177.m3u8',
+        height: 1080,
+        width: 608,
+        bit_rate: null,
+        maximum_bit_rate: 2135,
+        minimum_bit_rate: 270,
+        content_type: 'application/vnd.apple.mpegurl',
+        poster_url: 'https://img.buzzfeed.com/video-transcoder-prod/output/283325/1445289064805-h2exzu/1681166177_00001.png',
+        name: 'low',
+        duration: 26819,
+        file_size: null,
+        container: 'ts'
+      }
+    ],
+    nutrition: {
+      fiber: 5,
+      updated_at: '2023-04-12T08:01:29+02:00',
+      calories: 714,
+      carbohydrates: 40,
+      fat: 43,
+      protein: 43,
+      sugar: 5
+    },
+    topics: [
+      { name: 'Romantic Dinners', slug: 'romantic-dinners' },
+      { name: 'Mexican', slug: 'mexican' }
+    ],
+    beauty_url: null,
+    description: 'Growing up between Mexico and South Texas, enchiladas Suizas was one of my favorite dishes. I remember asking my mom to make them at least once a month for years. They are sour, creamy, and so flavorful!'
+  }
+  GET /8650 200 1787.430 ms - 4490
+  GET /stylesheets/style.css 304 1.450 ms - -
+  GET /images/cropped-tastyer-logo.png 304 0.457 ms - -
+  GET /js/script.js 304 0.393 ms - -
+  hi
+  [Object: null prototype] {
+    author: 'Mich',
+    comment: 'Me gustan las enchiladas!'
+  }
+  POST /recipe/8650 302 38.618 ms - 54
+  option.params!!!!!!!!!!!! { id: '8650' }
+  recipe--------------- {
+    cook_time_minutes: 40,
+    draft_status: 'published',
+    num_servings: 5,
+    promotion: 'full',
+    slug: 'enchiladas-suizas-mexicanas',
+    tags: [
+      {
+        display_name: 'Mexican',
+        type: 'north_american',
+        root_tag_type: 'cuisine',
+        id: 64457,
+        name: 'mexican'
+      },
+      {
+        id: 64492,
+        name: 'baking',
+        display_name: 'Baking',
+        type: 'appliance',
+        root_tag_type: 'appliance'
+      },
+      {
+        id: 64505,
+        name: 'weeknight',
+        display_name: 'Weeknight',
+        type: 'dinner',
+        root_tag_type: 'meal'
+      },
+      {
+        name: 'stove_top',
+        display_name: 'Stove Top',
+        type: 'appliance',
+        root_tag_type: 'appliance',
+        id: 65848
+      }
+    ],
+    price: {
+      total: 2450,
+      portion: 500,
+      consumption_total: 950,
+      consumption_portion: 200,
+      updated_at: '2023-05-17T07:30:07+02:00'
+    },
+    aspect_ratio: '9:16',
+    beauty_url: null,
+    country: 'US',
+    created_at: 1681166402,
+    seo_title: 'Enchiladas Suizas',
+    total_time_minutes: 90,
+    updated_at: 1681238109,
+    nutrition_visibility: 'auto',
+    show: { id: 17, name: 'Tasty' },
+    description: 'Growing up between Mexico and South Texas, enchiladas Suizas was one of my favorite dishes. I remember asking my mom to make them at least once a month for years. They are sour, creamy, and so flavorful!',
+    seo_path: null,
+    yields: 'Servings: 5',
+    total_time_tier: { tier: 'under_1.5_hours', display_tier: 'Under 1.5 hours' },
+    is_one_top: false,
+    name: 'Enchiladas Suizas Mexicanas',
+    prep_time_minutes: 30,
+    servings_noun_singular: 'serving',
+    thumbnail_url: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/439366.jpg',
+    tips_and_ratings_enabled: true,
+    brand: null,
+    credits: [
+      { name: 'Joelle Park', type: 'internal' },
+      { name: 'Brent Bennett', type: 'internal' }
+    ],
+    video_ad_content: 'none',
+    canonical_id: 'recipe:8650',
+    brand_id: null,
+    servings_noun_plural: 'servings',
+    thumbnail_alt_text: '',
+    instructions: [
+      {
+        end_time: 0,
+        temperature: 350,
+        appliance: 'oven',
+        id: 74734,
+        display_text: 'Preheat the oven to 350°F (180°C).',
+        position: 1,
+        start_time: 0
+      },
+      {
+        display_text: 'Fill a large saucepan halfway with water. Bring to a boil over high heat, then add the tomatillos, jalapeños, and onion and cook for about 10 minutes, or until the tomatillo skins begin to split. Drain, then transfer the vegetables to a blender.',
+        position: 2,
+        start_time: 7833,
+        end_time: 9166,
+        temperature: null,
+        appliance: null,
+        id: 74735
+      },
+      {
+        start_time: 9666,
+        end_time: 13666,
+        temperature: null,
+        appliance: null,
+        id: 74736,
+        display_text: 'Add the cream cheese, chicken bouillon, garlic, crema, and cilantro bunch to the blender with the vegetables and blend on high speed until smooth, 30–45 seconds.',
+        position: 3
+      },
+      {
+        temperature: null,
+        appliance: null,
+        id: 74737,
+        display_text: 'Add the olive oil to the same large saucepan used to boil the vegetables, then pour in the sauce. Cook over medium heat, stirring occasionally, for about 5 minutes, or until the color turns a shade paler.',
+        position: 4,
+        start_time: 15333,
+        end_time: 16833
+      },
+      {
+        start_time: 17500,
+        end_time: 19666,
+        temperature: null,
+        appliance: null,
+        id: 74738,
+        display_text: 'Heat a drizzle of olive oil in a large skillet over low heat. Working in batches, add the tortillas and cook for 20–30 seconds on each side to soften, adding more oil between batches if needed.',
+        position: 5
+      },
+      {
+        appliance: null,
+        id: 74739,
+        display_text: 'In a medium bowl, pour ¾ cup of the enchilada sauce over the shredded chicken and toss well until the chicken is fully coated.',
+        position: 6,
+        start_time: 21000,
+        end_time: 22333,
+        temperature: null
+      },
+      {
+        start_time: 0,
+        end_time: 0,
+        temperature: null,
+        appliance: null,
+        id: 74740,
+        display_text: 'Add ½ cup of the enchilada sauce to a 9 x 13-inch baking dish and smooth with an offset spatula until the entire bottom of the dish is covered.',
+        position: 7
+      },
+      {
+        display_text: 'Add some shredded chicken to each tortilla, roll up, and arrange seam-side down in the baking dish on top of the enchilada sauce. Evenly pour the remaining sauce over the rolled tortillas, then sprinkle the grated cheese on top.',
+        position: 8,
+        start_time: 23000,
+        end_time: 26726,
+        temperature: null,
+        appliance: null,
+        id: 74741
+      },
+      {
+        id: 74742,
+        display_text: 'Bake the enchiladas for 30–40 minutes, or until the cheese melts and begins to turn golden.',
+        position: 9,
+        start_time: 0,
+        end_time: 0,
+        temperature: null,
+        appliance: null
+      },
+      {
+        end_time: 0,
+        temperature: null,
+        appliance: null,
+        id: 74743,
+        display_text: 'Garnish the enchiladas with sliced red onion and chopped cilantro, then serve immediately.',
+        position: 10,
+        start_time: 0
+      },
+      {
+        id: 74744,
+        display_text: 'Enjoy!',
+        position: 11,
+        start_time: 3333,
+        end_time: 4500,
+        temperature: null,
+        appliance: null
+      }
+    ],
+    sections: [ { position: 1, components: [Array], name: null } ],
+    nutrition: {
+      protein: 43,
+      sugar: 5,
+      fiber: 5,
+      updated_at: '2023-04-12T08:01:29+02:00',
+      calories: 714,
+      carbohydrates: 40,
+      fat: 43
+    },
+    approved_at: 1681238109,
+    buzz_id: null,
+    video_id: 179789,
+    id: 8650,
+    inspired_by_url: null,
+    show_id: 17,
+    video_url: 'https://vid.tasty.co/output/283325/hls24_1681166177.m3u8',
+    user_ratings: { count_negative: 2, score: 0.666667, count_positive: 4 },
+    original_video_url: 'https://s3.amazonaws.com/video-api-prod/assets/e5d9c82349fa463d917fa1867b3a0dfa/BFV99819_Day1OfCookingComfortFoodsFromEveryCountry_9x16FINAL.mp4',
+    facebook_posts: [],
+    renditions: [
+      {
+        width: 404,
+        file_size: 4300219,
+        maximum_bit_rate: null,
+        container: 'mp4',
+        url: 'https://vid.tasty.co/output/283325/square_720/1681166177',
+        poster_url: 'https://img.buzzfeed.com/video-transcoder-prod/output/283325/square_720/1681166177_00001.png',
+        name: 'mp4_404x720',
+        height: 720,
+        duration: 26777,
+        bit_rate: 1285,
+        minimum_bit_rate: null,
+        content_type: 'video/mp4',
+        aspect: 'portrait'
+      },
+      {
+        height: 320,
+        minimum_bit_rate: null,
+        content_type: 'video/mp4',
+        container: 'mp4',
+        poster_url: 'https://img.buzzfeed.com/video-transcoder-prod/output/283325/square_320/1681166177_00001.png',
+        name: 'mp4_180x320',
+        width: 180,
+        duration: 26777,
+        file_size: 1587261,
+        bit_rate: 475,
+        maximum_bit_rate: null,
+        aspect: 'portrait',
+        url: 'https://vid.tasty.co/output/283325/square_320/1681166177'
+      },
+      {
+        aspect: 'portrait',
+        container: 'mp4',
+        poster_url: 'https://img.buzzfeed.com/video-transcoder-prod/output/283325/landscape_720/1681166177_00001.png',
+        name: 'mp4_404x720',
+        width: 404,
+        maximum_bit_rate: null,
+        minimum_bit_rate: null,
+        bit_rate: 1284,
+        content_type: 'video/mp4',
+        url: 'https://vid.tasty.co/output/283325/landscape_720/1681166177',
+        height: 720,
+        duration: 26777,
+        file_size: 4296142
+      },
+      {
+        maximum_bit_rate: null,
+        aspect: 'portrait',
+        url: 'https://vid.tasty.co/output/283325/landscape_480/1681166177',
+        poster_url: 'https://img.buzzfeed.com/video-transcoder-prod/output/283325/landscape_480/1681166177_00001.png',
+        duration: 26777,
+        file_size: 2522475,
+        bit_rate: 754,
+        content_type: 'video/mp4',
+        container: 'mp4',
+        name: 'mp4_270x480',
+        height: 480,
+        width: 270,
+        minimum_bit_rate: null
+      },
+      {
+        width: 608,
+        duration: 26819,
+        minimum_bit_rate: 270,
+        aspect: 'portrait',
+        poster_url: 'https://img.buzzfeed.com/video-transcoder-prod/output/283325/1445289064805-h2exzu/1681166177_00001.png',
+        name: 'low',
+        height: 1080,
+        file_size: null,
+        bit_rate: null,
+        maximum_bit_rate: 2135,
+        content_type: 'application/vnd.apple.mpegurl',
+        container: 'ts',
+        url: 'https://vid.tasty.co/output/283325/hls24_1681166177.m3u8'
+      }
+    ],
+    is_shoppable: true,
+    keywords: ', comfort food, enchiladas suizas, mexican food',
+    language: 'eng',
+    compilations: [],
+    topics: [
+      { name: 'Romantic Dinners', slug: 'romantic-dinners' },
+      { slug: 'mexican', name: 'Mexican' }
+    ]
+  }
