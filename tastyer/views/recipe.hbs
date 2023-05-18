@@ -17,9 +17,6 @@
     <p>
       {{recipe.description}}
     </p>
-    {{!-- <h3>
-      {{recipe.nutrition}}
-    </h3> --}}
 <h4>Instructions:
         <ol>
           {{#each recipe.instructions}}
@@ -27,10 +24,6 @@
           {{/each}}
         </ol>
       </h4>
-
-     {{!-- <h3>
-      {{recipe.keywords}}
-    </h3> --}}
   </div>
 </div>
 
@@ -49,7 +42,7 @@
     </div>
     <div class="form-group">
       <label for="image">Image:</label>
-      {{!-- <input type="file" name="image" id="image"> --}}
+      <input type="file" name="image" id="image">
     </div>
     <button type="submit">Submit</button>
   </form>

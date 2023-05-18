@@ -172,23 +172,9 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           req.session.currentUser = user.toObject();
           // Remove the password field
           delete req.session.currentUser.password;
-          res.redirect("/auth/profile");
+          res.redirect("/home");
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
-    })
-    .catch((err) => next(err));
-});
-
-// GET /auth/profile
-router.get("/profile", isLoggedIn, (req, res, next) => {
-  
-  console.log("req.session.currentuser id----------:", req.session.currentUser._id);
-  // const objectId = objectId()
-
-  User.findById(req.session.currentUser._id)
-    .then((user) => {
-      console.log("user:", user);
-      res.render("auth/profile", user);
     })
     .catch((err) => next(err));
 });

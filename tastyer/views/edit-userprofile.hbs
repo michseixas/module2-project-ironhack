@@ -1,0 +1,71 @@
+<form
+  class="mx-auto w-50"
+  action="/profile/{{user.username}}/edit"
+  method="POST"
+  {{!-- enctype="multipart/form-data" --}}
+>
+
+  {{#if errorMessage}}
+    <div class="alert alert-danger" role="alert">
+      {{errorMessage}}
+    </div>
+  {{/if}}
+
+  <div class="mb-3">
+    <label form="exampleInputEmail1" class="form-label">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      name="username"
+      value="{{user.username}}"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label form="exampleInputEmail1" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      name="email"
+      value="{{user.email}}"
+    />
+  </div>
+  <div class="mb-3">
+    <label form="exampleInputCity" class="form-label">City</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputCity"
+      name="city"
+      value="{{user.city}}"
+    />
+  </div>
+  <div class="mb-3">
+    <label form="exampleInputBio" class="form-label">Bio</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputBio"
+      name="bio"
+      value="{{user.bio}}"
+    />
+  </div>
+  {{!-- <div class="mb-3">
+    <label for="exampleInputPhoto" class="form-label">Photo</label>
+    <input
+      type="file"
+      class="form-control"
+      id="exampleInputPhoto"
+      name="photo"
+      accept="image/*"
+    />
+  </div> --}}
+  <br />
+  <br />
+  <button type="submit" class="btn btn-primary">Edit</button>
+
+</form>

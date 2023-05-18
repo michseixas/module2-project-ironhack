@@ -18,6 +18,9 @@ const commentSchema = new Schema({
   recipeId: {
     type: String,
   },
+  image: {
+    type: String,
+  }
 });
 
 module.exports = model("Comment", commentSchema);
