@@ -20,9 +20,9 @@ const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
 cloudinary.config({
-  cloud_name: process.env.CLAUDINARY_CLOUD_NAME,
-  api_key: process.env.CLAUDINARY_API_KEY,
-  api_secret: process.env.CLAUDINARY_API_SECRET,
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 const storage = new CloudinaryStorage({
@@ -172,7 +172,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           req.session.currentUser = user.toObject();
           // Remove the password field
           delete req.session.currentUser.password;
-          res.redirect("/auth/profile");
+          res.redirect("/home");
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
     })
@@ -180,18 +180,18 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 });
 
 // GET /auth/profile
-router.get("/profile", isLoggedIn, (req, res, next) => {
+// router.get("/profile", isLoggedIn, (req, res, next) => {
   
-  console.log("req.session.currentuser id----------:", req.session.currentUser._id);
-  // const objectId = objectId()
+//   console.log("req.session.currentuser id----------:", req.session.currentUser._id);
+//   // const objectId = objectId()
 
-  User.findById(req.session.currentUser._id)
-    .then((user) => {
-      console.log("user:", user);
-      res.render("auth/profile", user);
-    })
-    .catch((err) => next(err));
-});
+//   User.findById(req.session.currentUser._id)
+//     .then((user) => {
+//       console.log("user:", user);
+//       res.render("auth/profile", user);
+//     })
+//     .catch((err) => next(err));
+// });
 
 // GET /auth/logout
 router.get("/logout", isLoggedIn, (req, res, next) => {
