@@ -4,6 +4,7 @@ const axios = require("axios");
 const bodyparser = require("body-parser");
 const transporter = require("../config/transporter.config");
 const templates = require("../templates/template");
+const mongoose = require("mongoose");
 
 const options = {
   method: "GET",
@@ -32,7 +33,7 @@ router.get("/", (req, res, next) => {
 });
 
 /* GET home page */
-router.get("/home", (req, res, next) => {
+router.get("/home", isLoggedIn, (req, res, next) => {
   options.url = "https://tasty.p.rapidapi.com/recipes/list";
   options.params = {
     from: "22", //selection of single recipes, not multiple recipes!!
@@ -208,6 +209,16 @@ router.post("/subscribe", (req, res, next) => {
         }
         Subscriber.create({email}) //creates subscriber
           .then((subscriber) => {
+            // Send Thanks for Subscribing Email
+            transporter.sendMail({
+              from: `"Tastyer Team" <${process.env.EMAIL_ADDRESS}>`,
+              to: email,
+              subject: "Welcome to Tastyer",
+              html: templates.templateExample(),
+            })
+            .then((info) => res.render("message", { email, subject, message, info }))
+            .catch((error) => console.log(error));
+            // send mail complete
             res.render("subscribe-ok");
           })
           .catch((error) => {

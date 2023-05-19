@@ -1,10 +1,10 @@
-<h1>Hello from the recipe(recipeId)</h1>
 
 
-<div>
-  <div>
-    <p>Recipe Page</p>
+<div class="recipe-main">
+  <div class="recipe-left-column">
     <img src="{{recipe.thumbnail_url}}" alt="a recipe" class="recipe-photo" />
+  </div>
+  <div class="recipe-right-column">  
     <h1>
       {{recipe.name}}
     </h1>
@@ -16,50 +16,56 @@
     </p>
     <p>
       {{recipe.description}}
-    </p>
-<h4>Instructions:
+    </p> 
+    <h4>Instructions:</h4>
         <ol>
           {{#each recipe.instructions}}
           <li>{{display_text}}</li>
           {{/each}}
         </ol>
-      </h4>
   </div>
 </div>
 
 {{!-- Comment Form added  --}}
-
-<div class="comment-form">
-  <h2>Add a Comment</h2>
-  <form action="/recipe/{{recipe.id}}" method="POST">
-    <div class="form-group">
-      <label for="author">Name:</label>
-      <input type="text" name="author" id="author" required>
-    </div>
-    <div class="form-group">
-      <label for="comment">Comment:</label>
-      <textarea name="comment" id="comment" required></textarea>
-    </div>
-    <div class="form-group">
-      <label for="image">Image:</label>
-      <input type="file" name="image" id="image">
-    </div>
-    <button type="submit">Submit</button>
-  </form>
+<div class="comments-main">
+  <div class="comment-form">
+    <br>
+    <h3>Have you tried this recipe? Share your comments here:</h3>
+    <br>
+    <form action="/recipe/{{recipe.id}}" method="POST">
+      <div class="form-group">
+        <label for="author">Name:</label>
+        <input type="text" name="author" id="author" required>
+      </div>
+      <div class="form-group">
+        <label for="comment">Comment:</label>
+        <textarea name="comment" id="comment" required></textarea>
+      </div>
+      {{!-- <div class="form-group">
+        <label for="image">Image:</label>
+        <input type="file" name="image" id="image">
+      </div> --}}
+      <button type="submit" class="comment-button">Submit</button>
+    </form>
+  </div>
 </div>
+  {{!-- How to display the comment  --}}
 
-{{!-- How to display the comment  --}}
-<div class="comments">
-  <h2>Comments</h2>
-  {{#each comments}}
-    <div class="comment">
-      <h5>Posted by {{this.author}}</h5>
-      {{#if this.image}}
-        <img src="{{this.image}}" alt="Comment Image">
-      {{/if}}
-      <p>{{this.comment}}</p>
-    </div>
-  {{/each}}
+    <hr class="thin-bar">
+
+    
+  <div class="comment-posted">
+    <h2>Comments:</h2>
+    {{#each comments}}
+      <div class="comment">
+        <h5>Posted by {{this.author}}</h5>
+        {{#if this.image}}
+          <img src="{{this.image}}" alt="Comment Image">
+        {{/if}}
+        <p>{{this.comment}}</p>
+      </div>
+    {{/each}}
+  </div>
 </div>
 
 {{> footer}}

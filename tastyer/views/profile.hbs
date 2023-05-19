@@ -1,22 +1,19 @@
+<div class="container-profile">
+  <div class="profile">
+    <h3 class="profile-info"><strong>User:</strong> {{username}}</h3>
+    <h3 class="profile-info"><strong>Email:</strong> {{email}}</h3>
+    <h3 class="profile-info"><strong>City:</strong> {{city}}</h3>
+    <h3 class="profile-info"><strong>Bio:</strong> {{bio}}</h3>
+    <img src="{{profileImageSrc}}" alt="" class="profile-image">
+  </div>
 
-<h3>User: {{username}} </h3>
-<h3>Email: {{email}} </h3>
-<h3>City: {{city}} </h3>
-<h3>Bio: {{bio}} </h3>
-<img src="{{profileImageSrc}}" alt="">
+  <div class="profile-actions">
+    <a href="/profile/{{username}}/edit" class="btn-profile btn-primary">Edit profile</a>
+  </div>
 
-
-
-<div>
-  <a href="/profile/{{username}}/edit" class="btn btn-primary">Edit profile</a>
+  <div class="profile-actions">
+    <form action="/profile/{{username}}/delete" method="POST">
+      <button type="submit" class="btn-profile btn-danger">Delete profile</button>
+    </form>
+  </div>
 </div>
-<br>
-<div>
-  <form action="/profile/{{username}}/delete" method="POST">
-    <button type="submit" class="btn btn-danger">Delete profile</button>
-  </form>
-</div>
-
-
-<br>
-<h3>My favorit recipe</h3>

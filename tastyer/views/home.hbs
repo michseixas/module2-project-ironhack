@@ -1,23 +1,37 @@
 <div class="container">
   <div class="row flex-row">
-    <p>Recipe Page</p>
-
-    <div><img src="/images/background-ingredients.png" alt="cuisine ingredients" width="100%"></div>
-    {{#each recipes}}
-    <div class="col-md-4">
-      <br>
-      <div class="image-container"><img src="{{this.thumbnail_url}}" alt="a recipe" class="recipe-photo-NOT" /></div>
-      <br>
-      <h1>
-        {{this.name}}
-      </h1>
-      <h4>Servings:
-        {{this.num_servings}}
-      </h4>
-      <a href="/{{this.id}}">Details</a>
+    <div class="header-image">
+      <div class="image-container-recipes">
+        <h1 class="centered-heading">Make your <br> dreamfood <br> with us</h1>
+      </div>
     </div>
-    {{/each}}
-  </div>  
+    <div class="for-each-recipe">
+      {{!-- {{#each recipes}}
+      <div class="col-md-4">
+        <br>
+        <div class="image-container-recipes">
+          <img src="{{this.thumbnail_url}}" alt="a recipe" class="recipe-photo-NOT" />
+        </div>
+        <br>
+        <h1 class="recipe">{{this.name}}</h1>
+        <h4>Servings:{{this.num_servings}}</h4>
+        <a href="/{{this.id}}">Details</a>
+      </div>
+      {{/each}} --}}
+      {{#each recipes}}
+<div class="col-md-4">
+  <br>
+  <div class="image-container-recipes">
+    <img src="{{this.thumbnail_url}}" alt="a recipe" class="recipe-photo-NOT" />
+  </div>
+  <br>
+  <h1 class="recipe">{{this.name}}</h1>
+  <h4>Servings:{{this.num_servings}}</h4>
+  <button onclick="window.location.href='/{{this.id}}'" class="btn detail-button">Details</button>
+</div>
+{{/each}}
+    </div>
+  </div>
 </div>
 
 
