@@ -253,6 +253,10 @@ a {
   width: 75%;
 }
 
+.about-us-pic{
+  width: 75%;
+}
+
 .recipe-main {
   display: flex;
   flex-wrap: wrap;
@@ -286,5 +290,14 @@ a {
 
 .detail-button,.comment-button{
   background-color: #9dce9f;
-  color: white; /* Optionally, adjust the text color for better visibility */
+  color: white; 
+}
+
+.tastyer-logo-index{
+  width: 40%;
+  padding-bottom: 60px;
+}
+
+.signup-title {
+  text-align: center;
 }

@@ -16,9 +16,8 @@
 
 <div><h2>Project Image</h2>
 
-<!-- ![Project Image](https://assets.website-files.com/5c755d7d6fa90e6b6027e74c/642fe45b20446d4f867135fb_%D0%A1over.jpg "Project Image") -->
 
-<img  style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;"  src=""  width="283"  height="150">
+<img  style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;"  src="images/tastyer-project-image-reduced.png"  width=""  height="">
 
 </div>
 
